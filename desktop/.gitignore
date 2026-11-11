@@ -1,0 +1,6 @@
+node_modules/
+out/
+release/
+dev/.shims/
+*.log
+.DS_Store

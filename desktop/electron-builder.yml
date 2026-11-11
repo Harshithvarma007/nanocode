@@ -1,0 +1,34 @@
+# electron-builder config: `npm run dist` -> release/mac-arm64/nanocode.app (+ a .dmg), unsigned.
+appId: dev.nanocode.desktop
+productName: nanocode
+copyright: MIT licensed
+directories:
+  output: release
+  buildResources: build
+files:
+  - out/**
+  - package.json
+# The standalone engine (built by ../packaging/build-engine.sh, checked by scripts/check-engine.mjs).
+# At runtime it's <app>/Contents/Resources/engine/nanocode-engine/nanocode-engine (see src/main/engine.ts).
+extraResources:
+  - from: ../packaging/dist/nanocode-engine
+    to: engine/nanocode-engine
+asar: true
+npmRebuild: false
+electronLanguages:
+  - en
+mac:
+  target:
+    - dir
+    - dmg
+  category: public.app-category.developer-tools
+  icon: build/icon.icns
+  identity: null
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  darkModeSupport: true
+  extendInfo:
+    NSHumanReadableCopyright: MIT licensed
+dmg:
+  title: nanocode
+  artifactName: nanocode-${version}-arm64.${ext}

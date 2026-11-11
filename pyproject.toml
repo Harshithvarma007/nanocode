@@ -1,0 +1,30 @@
+[project]
+name = "nanocode"
+version = "0.1.0"
+description = "A Claude Code-style coding agent built from scratch. Runs on Claude, any OpenAI-compatible API, or free local models via Ollama."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "anthropic>=2.6",
+    "openai>=1.40",
+    "httpx>=0.27",
+    "rich>=13.7",
+    "prompt_toolkit>=3.0.52",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+nanocode = "nanocode.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["nanocode*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
