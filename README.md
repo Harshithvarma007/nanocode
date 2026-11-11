@@ -111,6 +111,10 @@ Non-interactive: `nanocode -p "explain this repo"` prints the answer and exits. 
 diffs, inline permission and plan approval, the mode pill (Shift+Tab), a model picker, and an inspector
 with todos, checkpoints you can rewind, context usage, MCP servers and cost.
 
+**Download:** get `nanocode-0.1.0-arm64.dmg` from the [latest release](https://github.com/Harshithvarma007/nanocode/releases/latest) (Apple Silicon, macOS). The app is not notarized, so on first launch right-click > **Open**.
+
+Or build it yourself:
+
 ```bash
 ./packaging/build-engine.sh                 # standalone engine (PyInstaller), bundled into the app
 cd desktop && npm install && npm run dist   # -> desktop/release/mac-arm64/nanocode.app (+ a .dmg)
